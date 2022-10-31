@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Home page !{% endblock %}
+
+{% block body %}
+
+  <h1>Bienvenu dans ce blog ! ✅</h1>
+{# comment pour boucle
+
+  {% if age > 18 %}
+    <p>Tu es majeur</p>
+  {% else %}
+    <p>Tu es mineur</p>
+  {%endif%}
+
+#}
+
+  <section class="articles">
+
+    {%for article in articles%}
+      <article>
+        <h2>{{article.title}}</h2>
+        <div class="metadata">{{article.createdeAt |date('d/m/Y')}} à {{article.createdeAt |date('H:i')}}</div>
+        <div class="content">
+          <img src="{{article.image}}" alt="">
+          <p>{{article.content | raw }}</p>
+          <a href="{{ path('blog_show', {'id':article.id}) }}" class="btn btn-primary">Lire la suite</a>
+        </div>
+      </article>
+    {%endfor%}
+
+  </section>
+
+{% endblock %}
