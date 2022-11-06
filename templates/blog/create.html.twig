@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Formulaire !{% endblock %}
+
+{% block body %}
+
+        {# Formulaire de création et de modification #}
+
+        <h1>Création d'un article</h1>
+
+        {{ form_start(formArticle) }}
+
+        {{ form_widget(formArticle) }}
+
+        <button type="submit" class="btn btn-sucess">
+
+                {% if editMode %}
+
+                Enregistrer les modifications
+
+                {% else %}
+
+                Ajouter un article
+
+                {% end if %}
+
+        </button>
+
+        {{ form_end(formArticle) }}
+
+
+{#
+        {{ form_start(formArticle) }}
+
+        <div class="form-group">
+                <label for="">Titre</label>
+                {{ form_widget(formArticle.title) }}
+        </div>
+
+        <div class="form-group">
+                <label for="">Contenu</label>
+                {{ form_widget(formArticle.content) }}
+        </div>
+
+        <div class="form-group">
+                <label for="">Image</label>
+                {{ form_widget(formArticle.image) }}
+        </div>
+
+        {{ form_end(formArticle)} }
+#}
+{% endblock %}
